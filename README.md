@@ -44,25 +44,25 @@ alphaFM用于解决这样的问题特别适合，一边从hdfs下载，一边计
 
 ##参数说明：
 ###fm_train的参数：
--m <model_path>: 设置模型文件的输出路径。<br>
--dim <k0,k1,k2>: k0为1表示使用偏置w0参数，0表示不使用；k1为1表示使用w参数，为0表示不使用；k2为v的维度，可以是0。	default:1,1,8<br>
--init_stdev <stdev>: v的初始化使用均值为0的高斯分布，stdev为标准差。	default:0.1<br>
--w_alpha <w_alpha>: w0和w的FTRL超参数alpha。	default:0.05<br>
--w_beta <w_beta>: w0和w的FTRL超参数beta。	default:1.0<br>
--w_l1 <w_L1_reg>: w0和w的L1正则。	default:0.1<br>
--w_l2 <w_L2_reg>: w0和w的L2正则。	default:5.0<br>
--v_alpha <v_alpha>: v的FTRL超参数alpha。	default:0.05<br>
--v_beta <v_beta>: v的FTRL超参数beta。	default:1.0<br>
--v_l1 <v_L1_reg>: v的L1正则。	default:0.1<br>
--v_l2 <v_L2_reg>: v的L2正则。	default:5.0<br>
--core <threads_num>: 计算线程数。	default:1<br>
--im <initial_model_path>: 上次模型的路径，用于初始化模型参数。如果是第一次训练则不用设置此参数。<br>
--fvs <force_v_sparse>: 为了获得更好的稀疏解。当fvs值为1, 则训练中每当wi = 0，即令vi = 0；当fvs为0时关闭此功能。	default:0<br>
+-m \<model_path\>: 设置模型文件的输出路径。<br>
+-dim \<k0,k1,k2\>: k0为1表示使用偏置w0参数，0表示不使用；k1为1表示使用w参数，为0表示不使用；k2为v的维度，可以是0。	default:1,1,8<br>
+-init_\stdev <stdev\>: v的初始化使用均值为0的高斯分布，stdev为标准差。	default:0.1<br>
+-w_alpha \<w_alpha\>: w0和w的FTRL超参数alpha。	default:0.05<br>
+-w_beta \<w_beta\>: w0和w的FTRL超参数beta。	default:1.0<br>
+-w_l1 \<w_L1_reg\>: w0和w的L1正则。	default:0.1<br>
+-w_l2 \<w_L2_reg\>: w0和w的L2正则。	default:5.0<br>
+-v_alpha \<v_alpha\>: v的FTRL超参数alpha。	default:0.05<br>
+-v_beta \<v_beta\>: v的FTRL超参数beta。	default:1.0<br>
+-v_l1 \<v_L1_reg\>: v的L1正则。	default:0.1<br>
+-v_l2 \<v_L2_reg\>: v的L2正则。	default:5.0<br>
+-core \<threads_num\>: 计算线程数。	default:1<br>
+-im \<initial_model_path\>: 上次模型的路径，用于初始化模型参数。如果是第一次训练则不用设置此参数。<br>
+-fvs \<force_v_sparse\>: 为了获得更好的稀疏解。当fvs值为1, 则训练中每当wi = 0，即令vi = 0；当fvs为0时关闭此功能。	default:0<br>
 ###fm_predict的参数：
--m <model_path>: 模型文件路径。<br>
--dim <factor_num>: v的维度。	default:8<br>
--core <threads_num>: 计算线程数。	default:1<br>
--out <predict_path>: 输出文件路径。<br>
+-m \<model_path\>: 模型文件路径。<br>
+-dim \<factor_num\>: v的维度。	default:8<br>
+-core \<threads_num\>: 计算线程数。	default:1<br>
+-out \<predict_path\>: 输出文件路径。<br>
 ##计算速度：
 ###我的实验结果：
 本地1000万的样本，200万的特征维度，2.10GHz的CPU，开10个线程，非缺省参数如下：<br>
