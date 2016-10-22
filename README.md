@@ -38,7 +38,7 @@ alphaFM用于解决这样的问题特别适合，一边从hdfs下载，一边计
 `bias w w_n w_z`<br>
 其他行的格式为：<br>
 `feature_name w v1 v2 ... vf w_n w_z v_n1 v_n2 ... v_nf v_z1 v_z2 ... v_zf`
-#预测结果格式：
+##预测结果格式：
 `label score`<br>
 其中label为1或-1，score等于预测为正样本的概率值。
 
