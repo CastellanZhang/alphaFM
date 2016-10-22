@@ -46,7 +46,7 @@ alphaFM用于解决这样的问题特别适合，一边从hdfs下载，一边计
 ###fm_train的参数：
 -m \<model_path\>: 设置模型文件的输出路径。<br>
 -dim \<k0,k1,k2\>: k0为1表示使用偏置w0参数，0表示不使用；k1为1表示使用w参数，为0表示不使用；k2为v的维度，可以是0。	default:1,1,8<br>
--init_\stdev <stdev\>: v的初始化使用均值为0的高斯分布，stdev为标准差。	default:0.1<br>
+-init_stdev \<stdev\>: v的初始化使用均值为0的高斯分布，stdev为标准差。	default:0.1<br>
 -w_alpha \<w_alpha\>: w0和w的FTRL超参数alpha。	default:0.05<br>
 -w_beta \<w_beta\>: w0和w的FTRL超参数beta。	default:1.0<br>
 -w_l1 \<w_L1_reg\>: w0和w的L1正则。	default:0.1<br>
