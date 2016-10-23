@@ -3,6 +3,8 @@
 * alphaFM是Factorization Machines的一个单机多线程版本实现，用于解决二分类问题，比如CTR预估，优化算法采用了FTRL。
 FTRL是一种online learning算法，在Google于2013年给出的论文中用于解决LR的优化，但其实FTRL是一种通用的优化算法，同样可以用于FM。<br>
 
+* 算法原理见我的博客文章：http://castellanzhang.github.io/2016/10/16/fm_ftrl_softmax/
+
 * 在最早写此代码时，正值alphaGo完虐人类，便随手给其取名曰alphaFM。<br>
 
 * 实现alphaFM的初衷是解决大规模数据的FM训练，在我们真实的业务数据中，训练样本数常常是千万到亿级别，特征维度是百万到千万级别甚至上亿，
