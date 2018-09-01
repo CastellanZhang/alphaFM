@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <utility>
-#include <unordered_map>
 #include <thread>
 #include <mutex>
 #include <queue>
@@ -31,8 +30,8 @@ private:
     vector<thread> threadVec;
     int bufSize;
     int logNum;
-    void proThread();
-    void conThread();
+    void pro_thread();
+    void con_thread();
 };
 
 

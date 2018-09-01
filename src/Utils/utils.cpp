@@ -3,7 +3,7 @@
 #include "utils.h"
 
 const double kPrecision = 0.0000000001;
-void utils::splitString(string& line, char delimiter, vector<string>* r)
+void utils::split_string(string& line, char delimiter, vector<string>* r)
 {
     int begin = 0;
     for(int i = 0; i < line.size(); ++i)
@@ -15,16 +15,16 @@ void utils::splitString(string& line, char delimiter, vector<string>* r)
         }
     }
     if(begin < line.size())
+    {
         (*r).push_back(line.substr(begin, line.size() - begin));
+    }
 }
 
 
-int utils::sgn(double x) 
+int utils::sgn(double x)
 {
-    if(x > kPrecision)
-        return 1;
-    else
-        return -1;
+    if(x > kPrecision) return 1;
+    else return -1;
 }
 
 
@@ -34,7 +34,7 @@ double utils::uniform()
 }
 
 
-double utils::gaussian() 
+double utils::gaussian()
 {
     double u,v, x, y, Q;
     do
@@ -53,7 +53,8 @@ double utils::gaussian()
 }
 
 
-double utils::gaussian(double mean, double stdev) {
+double utils::gaussian(double mean, double stdev)
+{
     if(0.0 == stdev)
     {
         return mean;
@@ -62,5 +63,16 @@ double utils::gaussian(double mean, double stdev) {
     {
         return mean + stdev * gaussian();
     }
+}
+
+
+vector<string> utils::argv_to_args(int argc, char* argv[])
+{
+    vector<string> args;
+    for(int i = 1; i < argc; ++i)
+    {
+        args.push_back(string(argv[i]));
+    }
+    return args;
 }
 

@@ -9,10 +9,10 @@ bool pc_frame::init(pc_task& task, int t_num, int buf_size, int log_num)
     sem_init(&semPro, 0, 1);
     sem_init(&semCon, 0, 0);
     threadVec.clear();
-    threadVec.push_back(thread(&pc_frame::proThread, this));
+    threadVec.push_back(thread(&pc_frame::pro_thread, this));
     for(int i = 0; i < threadNum; ++i)
     {
-        threadVec.push_back(thread(&pc_frame::conThread, this));
+        threadVec.push_back(thread(&pc_frame::con_thread, this));
     }
     return true;
 }
@@ -26,10 +26,11 @@ void pc_frame::run()
     }
 }
 
-void pc_frame::proThread()
+
+void pc_frame::pro_thread()
 {
     string line;
-    int line_num = 0;
+    size_t line_num = 0;
     int i = 0;
     bool finished_flag = false;
     while(true)
@@ -45,9 +46,9 @@ void pc_frame::proThread()
             }
             line_num++;
             buffer.push(line);
-            if(line_num%logNum == 0)
+            if(line_num % logNum == 0)
             {
-                cout << line_num << " lines have finished" << endl;
+                cout << line_num << " lines finished" << endl;
             }
         }
         bufMtx.unlock();
@@ -60,7 +61,8 @@ void pc_frame::proThread()
 }
 
 
-void pc_frame::conThread(){
+void pc_frame::con_thread()
+{
     bool finished_flag = false;
     vector<string> input_vec;
     input_vec.reserve(bufSize);
@@ -82,8 +84,7 @@ void pc_frame::conThread(){
         bufMtx.unlock();
         sem_post(&semPro);
         pTask->run_task(input_vec);
-        if(finished_flag)
-            break;
+        if(finished_flag) break;
     }
     sem_post(&semCon);
 }
