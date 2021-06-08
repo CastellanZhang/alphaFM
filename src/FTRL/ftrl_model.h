@@ -193,7 +193,8 @@ int ftrl_model_unit<T>::factor_num;
 
 
 template<typename T>
-using my_hash_map = unordered_map<const char*, ftrl_model_unit<T>, my_hash, my_equal, my_allocator<pair<const char*, ftrl_model_unit<T> >, T, ftrl_model_unit> >;
+using my_hash_map = unordered_map<const char*, ftrl_model_unit<T>, my_hash, my_equal, 
+    my_allocator<pair<const char* const, ftrl_model_unit<T> >, T, ftrl_model_unit> >;
 
 
 template<typename T>

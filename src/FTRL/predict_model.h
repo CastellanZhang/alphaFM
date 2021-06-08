@@ -118,7 +118,8 @@ int predict_model_unit<T>::factor_num;
 
 
 template<typename T>
-using predict_hash_map = unordered_map<const char*, predict_model_unit<T>, my_hash, my_equal, my_allocator<pair<const char*, predict_model_unit<T> >, T, predict_model_unit> >;
+using predict_hash_map = unordered_map<const char*, predict_model_unit<T>, my_hash, my_equal, 
+    my_allocator<pair<const char* const, predict_model_unit<T> >, T, predict_model_unit> >;
 
 
 template<typename T>
